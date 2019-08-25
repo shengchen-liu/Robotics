@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/robond/Udacity_Robotics/catkin_ws/devel/setup.sh
