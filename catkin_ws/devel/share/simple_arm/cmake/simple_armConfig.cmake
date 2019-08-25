@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(simple_arm_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "/home/robond/Udacity_Robotics/catkin_ws/devel/include " STREQUAL " ")
   set(simple_arm_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "/home/robond/Udacity_Robotics/catkin_ws/devel/include")
   foreach(idir ${_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
       set(include ${idir})
@@ -122,7 +122,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/robond/Udacity_Robotics/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/robond/Udacity_Robotics/catkin_ws/devel/lib;/home/robond/Udacity_Robotics/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -145,7 +145,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(simple_arm_EXPORTED_TARGETS "")
+set(simple_arm_EXPORTED_TARGETS "simple_arm_generate_messages_cpp;simple_arm_generate_messages_eus;simple_arm_generate_messages_lisp;simple_arm_generate_messages_nodejs;simple_arm_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${simple_arm_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -182,7 +182,7 @@ foreach(depend ${depends})
   list(APPEND simple_arm_EXPORTED_TARGETS ${${simple_arm_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "simple_arm-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${simple_arm_DIR}/${extra})
