@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(ball_chaser_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "/home/workspace/Udacity_Robotics/catkin_ws/devel/include " STREQUAL " ")
   set(ball_chaser_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "/home/workspace/Udacity_Robotics/catkin_ws/devel/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -129,7 +129,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/workspace/Udacity_Robotics/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/workspace/Udacity_Robotics/catkin_ws/devel/lib;/home/workspace/Udacity_Robotics/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -152,7 +152,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(ball_chaser_EXPORTED_TARGETS "")
+set(ball_chaser_EXPORTED_TARGETS "ball_chaser_generate_messages_cpp;ball_chaser_generate_messages_eus;ball_chaser_generate_messages_lisp;ball_chaser_generate_messages_nodejs;ball_chaser_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${ball_chaser_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -189,7 +189,7 @@ foreach(depend ${depends})
   list(APPEND ball_chaser_EXPORTED_TARGETS ${${ball_chaser_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "ball_chaser-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${ball_chaser_DIR}/${extra})
