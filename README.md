@@ -1,5 +1,4 @@
 # Udacity_Robotics
 
-[Project:]: Robotics_Gazebo/README.md	"ss"
-[Project:]: GO_Chase_it/README.md
-
+1. [Project: Build my world](**Robotics_Gazebo**)
+2. Project: Go Chase it!
