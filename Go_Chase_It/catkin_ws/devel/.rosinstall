@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/workspace/Udacity_Robotics/catkin_ws/devel/setup.sh
+    local-name: /home/workspace/Udacity_Robotics/Go_Chase_It/catkin_ws/devel/setup.sh
