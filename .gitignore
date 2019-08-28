@@ -20,7 +20,6 @@ __pycache__/
 .idea/*
 __pycache__/*
 *.pyc
-*.xml
 __pycache__/config.cpython-36.pyc
 
 # Distribution / packaging
