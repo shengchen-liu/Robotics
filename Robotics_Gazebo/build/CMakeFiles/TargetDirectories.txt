@@ -1,3 +1,0 @@
-/home/shengchen/Udacity_Robotics/Robotics_Gazebo/build/CMakeFiles/rebuild_cache.dir
-/home/shengchen/Udacity_Robotics/Robotics_Gazebo/build/CMakeFiles/hello.dir
-/home/shengchen/Udacity_Robotics/Robotics_Gazebo/build/CMakeFiles/edit_cache.dir
