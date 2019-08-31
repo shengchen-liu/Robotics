@@ -26,7 +26,7 @@ void drive_robot(float lin_x, float ang_z)
 void process_image_callback(const sensor_msgs::Image img)
 {
 
-  vector<int> white_pixel{255, 255, 255};
+    std::vector<int> white_pixel{255, 255, 255};
 
     // TODO: Loop through each pixel in the image and check if there's a bright white one
     // Then, identify if this pixel falls in the left, mid, or right side of the image
@@ -35,6 +35,7 @@ void process_image_callback(const sensor_msgs::Image img)
 
     // Initiate variables
     int height = img.height;
+    int width = img.width;
     int step = img.step;
 
     float x = 0.0;
@@ -45,11 +46,20 @@ void process_image_callback(const sensor_msgs::Image img)
 // loop through all pixels
 
     for (int i = 0; i < height; i++){
-        for (int j = 0; j < step; j++){
+        for (int j = 0; j < width; j++){
         // count white pixel
-            if (img.data[i * step + j] == white_pixel){
-            count++;
-            offset_accumulated += j - step / 2.0;
+        // in ROS the sensor_msgs/image data is arranged in a 1D vector whereby one pixel is 
+        // represented by three consecutive bytes (uint8) comprising the RED, BLUE, and GREEN color information.
+            std::vector<int> current_pixel;
+            current_pixel.push_back(img.data[i*step + j*3]); // R channel
+            current_pixel.push_back(img.data[i*step + j*3 + 1]); // G channel
+            current_pixel.push_back(img.data[i*step + j*3 + 2]); // R channel
+            // std::cout<<current_pixel[0]<<std::endl;
+            // std::cout<<current_pixel[1]<<std::endl;
+            // std::cout<<current_pixel[2]<<std::endl;
+            if (current_pixel == white_pixel){
+            	count++;
+            	offset_accumulated += j - width / 2.0;
             }
         }
     }
@@ -60,10 +70,10 @@ void process_image_callback(const sensor_msgs::Image img)
     }
     else{
         x = 0.1;
-        // Calculate the average offset (from -step/2.0 to +step/2.0)
+        // Calculate the average offset (from -width/2.0 to +width/2.0)
         // Normalize the average offset (from -1.0 to 1.0)
-        // Multiply with magic number -4.0 to turn
-        z = -4.0 * offset_accumulated / count / (step /2.0);
+        // Multiply with magic number -0.2 to turn
+        z = -0.2 * offset_accumulated / count / (width /2.0);
     }
     
     // send request to service
