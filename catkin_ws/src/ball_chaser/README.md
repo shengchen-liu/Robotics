@@ -1,4 +1,4 @@
-#### Step 1 Create a Catkin Workspace
+## Step 1 Create a Catkin Workspace
 
 ```
 $ mkdir -p /home/workspace/catkin_ws/src
@@ -35,4 +35,3 @@ $ cd /home/workspace/catkin_ws/
 $ source devel/setup.bash
 $ rosrun rqt_image_view rqt_image_view  
 ```
-
