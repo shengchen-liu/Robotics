@@ -1,2 +1,0 @@
-set(robot_pose_ekf_MESSAGE_FILES "")
-set(robot_pose_ekf_SERVICE_FILES "/home/shengchen/Udacity_Robotics/catkin_ws/src/RoboND-EKFLab/robot_pose_ekf/srv/GetStatus.srv")
