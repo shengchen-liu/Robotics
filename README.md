@@ -4,7 +4,11 @@
 
 
 
-### 1. Build My World
+### 1. [Build My World](https://github.com/shengchen-liu/RoboND-Build-My-World)
+
+Design a Gazebo World Environment by including multiple models and use it as a base for all upcoming projects.
+
+![](images/world.jpg)
 
 ### 2. [Go Chase It!](https://github.com/shengchen-liu/RoboND-Go-Chase-It)
 
