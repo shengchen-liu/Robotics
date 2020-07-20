@@ -15,3 +15,9 @@ Design a Gazebo World Environment by including multiple models and use it as a b
 Design and build a mobile robot, and house it in your world.  Then program your robot with c++ nodes in ROS to chase white colored balls.
 
 ![](images/go_chase_it.gif)
+
+### 3. [Localization](https://github.com/shengchen-liu/Where_Am_I)
+
+Use the Adaptive Monte Carlo Localization in ROS to localize the robot.
+
+![](images/localization_mcl.gif)
